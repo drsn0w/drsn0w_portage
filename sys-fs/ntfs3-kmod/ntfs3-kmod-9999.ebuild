@@ -27,7 +27,6 @@ pkg_setup() {
 
 src_prepare() {
     default
-    sed -i "s/depmod -aq//" Makefile
 }
 
 src_configure() {
