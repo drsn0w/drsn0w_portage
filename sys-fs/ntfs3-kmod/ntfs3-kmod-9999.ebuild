@@ -20,6 +20,8 @@ pkg_setup() {
     # Check if kernel is greater than 5.14 / die if not
     kernel_is -ge 5 14 || die "Linux 5.14 or newer is required"
 
+    MODULE_NAMES="ntfs3(fs:::)"
+
     linux-mod_pkg_setup
 }
 
@@ -36,6 +38,7 @@ src_configure() {
 
 src_compile() {
     set_arch_to_kernel
+    #linux-mod_src_compile
     emake
 }
 
