@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit autotools linux-mod flag-o-matic
+inherit linux-mod flag-o-matic
 
 DESCRIPTION="ntfs3 Linux kernel module by Paragon Software, maintained by rmnscnce"
 HOMEPAGE="https://github.com/rmnscnce/ntfs3"
@@ -37,22 +37,11 @@ src_configure() {
 
 src_compile() {
     set_arch_to_kernel
-    #linux-mod_src_compile
     emake
 }
 
 src_install() {
-    set_arch_to_kernel
-
-	myemakeargs+=(
-		DEPMOD=:
-		DESTDIR="${D}"
-		MDIR="${D}/lib/modules/${KV_FULL}" # lib/modules/<kver> added by KBUILD
-	)
-
     linux-mod_src_install
-
-    #emake "${myemakeargs[@]}" install
 }
 
 pkg_postinst() {
