@@ -8,6 +8,10 @@ inherit linux-mod flag-o-matic
 DESCRIPTION="ntfs3 Linux kernel module by Paragon Software, maintained by rmnscnce"
 HOMEPAGE="https://github.com/rmnscnce/ntfs3"
 
+SLOT="0"
+LICENSE="GPL-2"
+
+
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/rmnscnce/ntfs3.git"
 	inherit git-r3
@@ -25,10 +29,6 @@ pkg_setup() {
     linux-mod_pkg_setup
 }
 
-src_prepare() {
-    default
-}
-
 src_configure() {
     set_arch_to_kernel
     strip-flags
@@ -38,12 +38,4 @@ src_configure() {
 src_compile() {
     set_arch_to_kernel
     emake KVER=${KV_FULL} KERNELRELEASE=${KV_FULL}
-}
-
-src_install() {
-    linux-mod_src_install
-}
-
-pkg_postinst() {
-    linux-mod_pkg_postinst
 }
