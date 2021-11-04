@@ -13,7 +13,7 @@ LICENSE="GPL-3"
 
 IUSE=" +audiosink +rtlsdr soapysdr hackrf airspy plutosdr discord portaudio bladerf limesdr spyserver"
 
-PATCHES=( "${FILESDIR}/fix-cmake-libdir-location.patch" )
+PATCHES=( "${FILESDIR}/fix-cmake-libdir-location-1.0.4.patch" )
 
 DEPEND="sci-libs/fftw
     media-libs/glfw
