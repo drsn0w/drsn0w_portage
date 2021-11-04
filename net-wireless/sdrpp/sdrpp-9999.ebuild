@@ -35,7 +35,8 @@ if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://github.com/AlexandreRouma/SDRPlusPlus.git"
     inherit git-r3
 else
-	SRC_URI="https://github.com/AlexandreRouma/SDRPlusPlus.git"
+	SRC_URI="https://github.com/AlexandreRouma/SDRPlusPlus/archive/${PV}.tar.gz"
+    S="${WORKDIR}/SDRPlusPlus-${PV}"
 	KEYWORDS="~amd64 ~arm ~x86"
 fi
 
